@@ -19,9 +19,9 @@ The backend uses Docker Compose to orchestrate the API, the Redis broker, and th
 
 2. **Create a `.env` file:**
    Create a file named `.env` in the `/backend` folder and add your credentials:
-```bash
+    ```bash
     cp .env_example -r .env
-```
+    ```
    ```env
    EMAIL_HOST_USER=your-email@gmail.com
    EMAIL_HOST_PASSWORD=your-google-app-password
@@ -48,13 +48,17 @@ The frontend is a standard Vite-based React app.
    ```bash
    cd frontend
    ```
-
-2. **Install dependencies:**
+2. **Create a `.env` file:**
+   Create a file named `.env` in the `/frontend` folder and add your credentials:
+    ```bash
+    cp .env_example -r .env
+    ```
+3. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+4. **Start the development server:**
    ```bash
    npm run dev
    ```
