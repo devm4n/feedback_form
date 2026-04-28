@@ -1,0 +1,24 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:8.4-alpine
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+  celery:
+    build: .
+    command: uv run celery -A core worker -l info
+    depends_on:
+      - redis
+  django:
+    container_name: django
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: >
+      bash -c "uv run manage.py migrate &&
+      uv run manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
