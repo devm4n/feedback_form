@@ -7,6 +7,8 @@ services:
       - "6379:6379"
   celery:
     build: .
+    env_file:
+      - .env
     command: uv run celery -A core worker -l info
     depends_on:
       - redis

@@ -97,7 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 
@@ -112,6 +112,8 @@ STATIC_URL = "static/"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+CELERY_BROKER_URL = "redis://redis:6379/0"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
